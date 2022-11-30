@@ -1,0 +1,84 @@
+package Estructuras;
+
+/**
+ *
+ * @author Raul
+ */
+public class Pila {
+
+    private NodoPila cima;
+    int tama;
+
+    public Pila() {
+        cima = null;
+        tama = 0;
+    }
+
+    public void Insertar(int d) {
+        NodoPila Nuevo = new NodoPila(d);
+        Nuevo.siguiente = cima;
+        cima = Nuevo;
+        tama++;
+    }
+
+    public int sacar() {
+        int e = cima.dato;
+        cima = cima.siguiente;
+
+        return e;
+    }
+
+    public void eliminar(int dato) {
+        NodoPila actual = new NodoPila();
+        actual = cima;
+        NodoPila anterior = new NodoPila();
+        anterior = null;
+        NodoPila buscar = new NodoPila(dato);
+        boolean encontrado = false;
+        if (cima != null) {
+            while (actual != null && encontrado != true) {
+                if (actual.dato == dato) {
+                    if (actual == cima) {
+                        cima = cima.siguiente;
+                        tama--;
+                    } else {
+                        anterior.siguiente = actual.siguiente;
+                    }
+                    encontrado = true;
+                }
+                anterior = actual;
+                actual = actual.siguiente;
+
+            }
+        }
+
+    }
+
+    public int cima() {
+        return cima.dato;
+    }
+
+    public static void main(String[] args) {
+        
+        Pila n = new Pila();
+        n.Insertar(12);
+        n.Insertar(13);
+        n.Insertar(54);
+        n.Insertar(320);
+        n.Insertar(498);
+        n.Insertar(532);
+        n.Insertar(2309);
+      
+
+       
+       
+        
+       
+        System.out.println(n.tama);
+
+        for (int i = 0; i < n.tama - 1; i++) {
+
+            System.out.println(n.sacar());
+        }
+    }
+}
