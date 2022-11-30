@@ -1,0 +1,17 @@
+package Estructuras;
+
+/**
+ *
+ * @author Raul
+ */
+public class NodoCola {
+    NodoCola siguiente;
+    int dato;
+     public NodoCola(int d){
+        dato=d;
+        siguiente=null;
+    }
+     public NodoCola(){
+         
+     }
+}
