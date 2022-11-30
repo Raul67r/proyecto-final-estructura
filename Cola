@@ -1,0 +1,72 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Estructuras;
+
+/**
+ *
+ * @author Raul
+ */
+public class Cola {
+    NodoCola inicio,fin;
+    int tama;
+    public Cola(){
+        inicio=fin=null;
+        tama=0;
+    }
+    public boolean vacia(){
+        return inicio==null;
+    }
+    public void incertar(int d){
+        NodoCola nuevo=new NodoCola(d);
+        if(vacia()){
+           inicio=nuevo;
+        }else{
+            fin.siguiente=nuevo;
+        }
+        fin=nuevo;
+        tama++;
+    }
+    public int sacar(){
+        int aux=inicio.dato;
+        inicio=inicio.siguiente;
+        tama--;
+        return aux;
+    }
+    public void eliminar(int dato) {
+        NodoCola actual = new NodoCola();
+        actual = inicio;
+        NodoCola anterior = new NodoCola();
+        anterior = null;
+        NodoCola buscar = new NodoCola(dato);
+        boolean encontrado = false;
+        if (inicio != null) {
+            while (actual != null && encontrado != true) {
+                if (actual.dato == dato) {
+                    if (actual == inicio) {
+                        inicio = inicio.siguiente;
+                        tama--;
+                    } else {
+                        anterior.siguiente = actual.siguiente;
+                    }
+                    encontrado = true;
+                }
+                anterior = actual;
+                actual = actual.siguiente;
+
+            }
+        }
+
+    }
+    public static void main(String[] args) {
+        Cola g=new Cola();
+        g.incertar(2);
+        g.incertar(10);
+        g.incertar(12);
+        g.eliminar(10);
+        for(int i=0;i<g.tama;i++){
+            System.out.println(g.sacar());
+        }
+    }
+}
