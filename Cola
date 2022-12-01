@@ -9,31 +9,155 @@ package Estructuras;
  * @author Raul
  */
 public class Cola {
-    NodoCola inicio,fin;
+
+    NodoCola inicio, fin;
     int tama;
-    public Cola(){
-        inicio=fin=null;
-        tama=0;
+
+    public Cola() {
+        inicio = fin = null;
+        tama = 0;
     }
-    public boolean vacia(){
-        return inicio==null;
+
+    public boolean vacia() {
+        return inicio == null;
     }
-    public void incertar(int d){
-        NodoCola nuevo=new NodoCola(d);
-        if(vacia()){
-           inicio=nuevo;
-        }else{
-            fin.siguiente=nuevo;
+
+    public void incertar(int d) {
+        NodoCola nuevo = new NodoCola(d);
+        if (vacia()) {
+            inicio = nuevo;
+        } else {
+            fin.siguiente = nuevo;
         }
-        fin=nuevo;
+        fin = nuevo;
         tama++;
     }
-    public int sacar(){
-        int aux=inicio.dato;
-        inicio=inicio.siguiente;
-        tama--;
+
+    public int sacar() {
+        int aux = inicio.dato;
+        inicio = inicio.siguiente;
+       
         return aux;
     }
+    public void precarga(){
+        NodoCola uno = new NodoCola(12);
+        if (vacia()) {
+            inicio = uno;
+        } else {
+            fin.siguiente = uno;
+        }
+        fin = uno;
+        tama++;
+        NodoCola dos = new NodoCola(3);
+        if (vacia()) {
+            inicio = dos;
+        } else {
+            fin.siguiente = dos;
+        }
+        fin = dos;
+        tama++;
+        NodoCola tres = new NodoCola(4);
+        if (vacia()) {
+            inicio = tres;
+        } else {
+            fin.siguiente = tres;
+        }
+        fin = tres;
+        tama++;
+        NodoCola cuatro = new NodoCola(9);
+        if (vacia()) {
+            inicio = cuatro;
+        } else {
+            fin.siguiente = cuatro;
+        }
+        fin = cuatro;
+        tama++;
+        NodoCola cinco = new NodoCola(590);
+        if (vacia()) {
+            inicio = cinco;
+        } else {
+            fin.siguiente = cinco;
+        }
+        fin = cinco;
+        tama++;
+        NodoCola nuevo = new NodoCola(64);
+        if (vacia()) {
+            inicio = nuevo;
+        } else {
+            fin.siguiente = nuevo;
+        }
+        fin = nuevo;
+        tama++;
+        NodoCola seis = new NodoCola(100);
+        if (vacia()) {
+            inicio = seis;
+        } else {
+            fin.siguiente = seis;
+        }
+        fin = seis;
+        tama++;
+        NodoCola siete = new NodoCola(283);
+        if (vacia()) {
+            inicio = siete;
+        } else {
+            fin.siguiente = siete;
+        }
+        fin = siete;
+        tama++;
+        NodoCola ocho = new NodoCola(198);
+        if (vacia()) {
+            inicio = ocho;
+        } else {
+            fin.siguiente = ocho;
+        }
+        fin = ocho;
+        tama++;
+        NodoCola nueve = new NodoCola(13);
+        if (vacia()) {
+            inicio = nueve;
+        } else {
+            fin.siguiente = nueve;
+        }
+        fin = nueve;
+        tama++;
+        NodoCola dies = new NodoCola(28);
+        if (vacia()) {
+            inicio = dies;
+        } else {
+            fin.siguiente = dies;
+        }
+        fin = dies;
+        tama++;
+        NodoCola once = new NodoCola(34);
+        if (vacia()) {
+            inicio = once;
+        } else {
+            fin.siguiente = once;
+        }
+        fin = once;
+        tama++;
+        NodoCola doce = new NodoCola(95);
+        if (vacia()) {
+            inicio = doce;
+        } else {
+            fin.siguiente = doce;
+        }
+        fin = doce;
+        tama++;
+        NodoCola trece = new NodoCola(101);
+        if (vacia()) {
+            inicio = trece;
+        } else {
+            fin.siguiente = trece;
+        }
+        fin = trece;
+        tama++;
+        
+        
+        
+        
+    }
+
     public void eliminar(int dato) {
         NodoCola actual = new NodoCola();
         actual = inicio;
@@ -46,11 +170,12 @@ public class Cola {
                 if (actual.dato == dato) {
                     if (actual == inicio) {
                         inicio = inicio.siguiente;
-                        tama--;
+                        
                     } else {
                         anterior.siguiente = actual.siguiente;
                     }
                     encontrado = true;
+                      tama--;
                 }
                 anterior = actual;
                 actual = actual.siguiente;
@@ -59,14 +184,29 @@ public class Cola {
         }
 
     }
+
     public static void main(String[] args) {
-        Cola g=new Cola();
-        g.incertar(2);
-        g.incertar(10);
+        Cola g = new Cola();
+        g.precarga();
         g.incertar(12);
-        g.eliminar(10);
-        for(int i=0;i<g.tama;i++){
+        g.incertar(13);
+        g.incertar(54);
+        g.incertar(320);
+        g.incertar(498);
+        g.incertar(532);
+        g.incertar(2309);
+          
+        g.eliminar(12);
+        g.eliminar(28);
+        g.eliminar(198);
+        g.eliminar(34);
+        g.eliminar(590);
+        g.eliminar(532);
+  
+        for (int i = 0; i < g.tama; i++) {
+          
             System.out.println(g.sacar());
         }
     }
 }
+
